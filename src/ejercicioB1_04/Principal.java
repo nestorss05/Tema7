@@ -20,12 +20,16 @@ public class Principal {
 		// Inicia el Scanner
 		Scanner sc = new Scanner(System.in);
 		
-		// While: añade cinco nombres
-		while (contadorNombres != 5) {
-			contadorNombres++;
+		// While: añade cinco nombres no repetidos
+		while (contadorNombres < 5) {
 			System.out.println("Inserta un nombre");
 			nombre = sc.nextLine();
-			listaNombres.add(nombre);
+			if (listaNombres.contains(nombre)) {
+				System.out.println("ERROR: nombre ya repetido");
+			} else {
+				listaNombres.add(nombre);
+				contadorNombres++;
+			}
 		} // Fin While
 		
 		// Invierte la lista
